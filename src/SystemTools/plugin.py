@@ -8,22 +8,19 @@
 # stefansat#telenet.be
 # Christophe Van Reusel
 from Screens.Screen import Screen
+from Screens.Console import Console
 from Screens.MessageBox import MessageBox
-from Screens.TextBox import TextBox
-from .SystemToolsText import SystemToolsTextBox, SystemToolsTextBox2, SystemToolsTextBoxEcm
+from .SystemToolsText import SystemToolsTextBox, SystemToolsTextBox2
 from Components.MenuList import MenuList
 from Components.ActionMap import ActionMap
 from Plugins.Plugin import PluginDescriptor
 from Components.Label import Label
-from Components.Pixmap import Pixmap
 from Components.ConfigList import ConfigListScreen
-from Components.config import config, getConfigListEntry, ConfigSubsection, ConfigInteger, ConfigYesNo, ConfigText, ConfigElement
-from Components.ConfigList import ConfigList
+from Components.config import config, getConfigListEntry, ConfigSubsection, ConfigYesNo
 from Tools.Directories import fileExists, resolveFilename, SCOPE_PLUGINS, pathExists
 from .SystemToolsConsole import ConsoleBox, SystemToolsConsole
-from Components.MultiContent import MultiContentEntryText
 import os
-from enigma import eTimer, RT_HALIGN_LEFT, RT_HALIGN_RIGHT, gFont, gRGB, eListboxPythonMultiContent
+from enigma import eTimer
 
 ##############################################################################
 config.SystemTools = ConfigSubsection()
@@ -579,13 +576,13 @@ def main(session, **kwargs):
 
 
 def menu(menuid, **kwargs):
-	if menuid == "mainmenu" and config.SystemTools.mainmenu.value == True:
+	if menuid == "mainmenu" and config.SystemTools.mainmenu.value:
 		return [(_("System Tools"), main, "tools_setup", 45)]
 
-	if menuid == "system" and config.SystemTools.systemmenu.value == True:
+	if menuid == "system" and config.SystemTools.systemmenu.value:
 		return [(_("System Tools"), main, "tools_setup", 45)]
 
-	if menuid == "setup" and config.SystemTools.setupmenu.value == True:
+	if menuid == "setup" and config.SystemTools.setupmenu.value:
 		return [(_("System Tools"), main, "tools_setup", 45)]
 
 	return []
@@ -593,7 +590,7 @@ def menu(menuid, **kwargs):
 
 
 def Plugins(**kwargs):
-	if config.SystemTools.applicationmenu.value == True:
+	if config.SystemTools.applicationmenu.value:
 		return [PluginDescriptor(name="System Tools", description="basic toolsmenu", where=PluginDescriptor.WHERE_PLUGINMENU, fnc=main),
 			PluginDescriptor(name="System Tools", description="basic toolsmenu", where=PluginDescriptor.WHERE_MENU, fnc=menu),
 			PluginDescriptor(name="System Tools", description="basic toolsmenu", where=PluginDescriptor.WHERE_EXTENSIONSMENU, fnc=main)]

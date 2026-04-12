@@ -1,11 +1,8 @@
 from Screens.Screen import Screen
 
 from Components.ActionMap import ActionMap
-from Components.Sources.StaticText import StaticText
 from Components.ScrollLabel import ScrollLabel
 from Components.Label import Label
-from Components.Pixmap import Pixmap
-from Components.Button import Button
 
 
 class SystemToolsTextBox(Screen):
