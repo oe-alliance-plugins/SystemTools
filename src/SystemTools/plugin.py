@@ -1,5 +1,3 @@
-from __future__ import absolute_import
-from __future__ import print_function
 # System Tools e2plugin
 # This Tools are made To have system tools Integrated into skin.
 # For prober skin integration, skin.xml needs to be adapted to have the screens fit into it.
@@ -428,7 +426,7 @@ class SystemToolsSwap(Screen):
 			elif returnValue == "com_swapten":
 				msg = _("Swap is De-activated")
 				self.mbox = self.session.open(MessageBox, msg, MessageBox.TYPE_INFO)
-				os.system("swapoff -a; sed -i '\/swapfile/d' /etc/fstab")
+				os.system("swapoff -a; sed -i '/swapfile/d' /etc/fstab")
 					
 			else:
 				print("\n[SystemToolsSwap] cancel\n")
@@ -532,8 +530,8 @@ class SystemToolsSwap(Screen):
 
 	def activateswaphdd(self):
 		if fileExists("/media/hdd/swapfile"):
-			os.system("swapoff -a; sed -i '\/swapfile/d' /etc/fstab; swapon /media/hdd/swapfile")
-			os.system("sed -i '/hdd\/swapfile/d' /etc/fstab; echo -e '/media/hdd/swapfile swap swap defaults 0 0' >> /etc/fstab")
+			os.system("swapoff -a; sed -i '/swapfile/d' /etc/fstab; swapon /media/hdd/swapfile")
+			os.system("sed -i '/hdd/swapfile/d' /etc/fstab; echo -e '/media/hdd/swapfile swap swap defaults 0 0' >> /etc/fstab")
 			msg = _("Swap is activated on HDD")
 			self.mbox = self.session.open(MessageBox, msg, MessageBox.TYPE_INFO)
 		else:
@@ -542,8 +540,8 @@ class SystemToolsSwap(Screen):
 
 	def activateswapcf(self):
 		if fileExists("/media/cf/swapfile"):
-			os.system("swapoff -a; sed -i '\/swapfile/d' /etc/fstab; swapon /media/cf/swapfile")
-			os.system("sed -i '/cf\/swapfile/d' /etc/fstab; echo -e '/media/cf/swapfile swap swap defaults 0 0' >> /etc/fstab")
+			os.system("swapoff -a; sed -i '/swapfile/d' /etc/fstab; swapon /media/cf/swapfile")
+			os.system("sed -i '/cf/swapfile/d' /etc/fstab; echo -e '/media/cf/swapfile swap swap defaults 0 0' >> /etc/fstab")
 			msg = _("Swap is activated on CF")
 			self.mbox = self.session.open(MessageBox, msg, MessageBox.TYPE_INFO)
 		else:
@@ -552,8 +550,8 @@ class SystemToolsSwap(Screen):
 			
 	def activateswapusb(self):
 		if fileExists("/media/usb/swapfile"):
-			os.system("swapoff -a; sed -i '\/swapfile/d' /etc/fstab; swapon /media/usb/swapfile")
-			os.system("sed -i '/usb\/swapfile/d' /etc/fstab; echo -e '/media/usb/swapfile swap swap defaults 0 0' >> /etc/fstab")
+			os.system("swapoff -a; sed -i '/swapfile/d' /etc/fstab; swapon /media/usb/swapfile")
+			os.system("sed -i '/usb/swapfile/d' /etc/fstab; echo -e '/media/usb/swapfile swap swap defaults 0 0' >> /etc/fstab")
 			msg = _("Swap is activated on USB")
 			self.mbox = self.session.open(MessageBox, msg, MessageBox.TYPE_INFO)
 		else:

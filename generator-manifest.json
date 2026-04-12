@@ -1,0 +1,24 @@
+{
+  "depends": "",
+  "description": "SystemTools for enigma2 stb",
+  "legacy_setup": {
+    "description": "SystemTools for enigma2 stb",
+    "has_setup_translate": false,
+    "name": "enigma2-plugin-extensions-systemtools",
+    "package_data": [],
+    "package_dir_value": "",
+    "packages": [],
+    "pkg": "Extensions.SystemTools",
+    "version": "0.7"
+  },
+  "module_dir_name": "SystemTools",
+  "package_name": "enigma2-plugin-extensions-systemtools",
+  "plugin_group": "extensions",
+  "source_repo_branch": "python3",
+  "source_repo_name": "e2openplugin-SystemTools",
+  "source_repo_url": "https://github.com/E2OpenPlugins/e2openplugin-SystemTools.git",
+  "target_repo_branch": "main",
+  "target_repo_name": "SystemTools",
+  "target_repo_url": "git@github.com:oe-alliance-plugins/SystemTools.git",
+  "version": "0.7"
+}
